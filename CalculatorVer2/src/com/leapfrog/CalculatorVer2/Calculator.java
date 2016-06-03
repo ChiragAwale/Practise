@@ -22,7 +22,7 @@ public class Calculator {
         System.out.println("4.Divide");
         System.out.println("5.Power");
         System.out.println("6.Exit");
-        System.out.println("What do you want to do choose [1-6]");
+        System.out.println("What do you want to do choose  [1-6]");
     }
     public static void main(String[] args) {
    // Calculator

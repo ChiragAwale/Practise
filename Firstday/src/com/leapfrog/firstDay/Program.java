@@ -20,7 +20,7 @@ public class Program {
        Scanner input = new Scanner(System.in)  ; 
 //Marksheet without Input 
        String name = "Ram";
-       String symbol = "112312y";
+       String symbol = "1123312y";
        String grade = "";
        double cmath = 89, optmath = 98, nep = 75, eng = 78, sc = 80, pe = 0;
        
