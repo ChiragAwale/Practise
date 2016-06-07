@@ -26,7 +26,7 @@ public class Center {
         System.out.println("2.Beverages Department");
         System.out.println("3.Delivery Department");
         System.out.println("4.It Department");
-        System.out.println("Choose the department you want to view/set data of/for]1-10]");
+        System.out.println("Choose the department you want to view/set data of/for]1-4]");
         int choice = scanner.nextInt();
         
         switch(choice){
