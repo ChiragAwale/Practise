@@ -29,7 +29,7 @@ public class Program {
         else {
             No(); 
         }
-            System.out.println("============================");
+            
         }
         
     }
@@ -54,100 +54,38 @@ public class Program {
             
             int num = random + player;
             System.out.println(num);
+            game(num);
             
-            int i = num;
-            for(i = num;i<=22;){
-               if((i+1)==21){
-
-               System.out.println("Enter...You can choose [" + (i+1)+ "]");
-               int player1 = scanner.nextInt();
-               
-                   System.out.println("You Loose,Better luck next time");
-                   Quit();
-               
-               }
-               if((i+2)==21){
-
-               System.out.println("Enter...You can choose [" + (i+1) + "," + (i+2) +"," + "]");
-               int player1 = scanner.nextInt();
-               
-               int comp = (ran.nextInt((21-player1))+1) + player1;
-                System.out.println("I choose " + comp);
-               if(comp == 21){
-                     System.out.println("I loose");
-                     Quit();
-                 }
-                 else if (player1==21) {
-                             System.out.println("You loose");
-                             Quit();
-                             }
-               i = comp; 
-              
-                 
-                     
-                 }
-               
-               if((i+3)==21 ){
-
-               System.out.println("Enter...You can choose [" + (i+1) + "," + (i+2) +"," +(i+3) + "]");
-               int player1 = scanner.nextInt();
-               
-               int comp = (ran.nextInt((21-player1))+1) + player1;
-               System.out.println("I choose " + comp);
-               if(comp == 21){
-                     System.out.println("I loose");
-                     Quit();
-                 }
-                 else if(player1 == 21){
-                     System.out.println("You Loose");
-                     Quit();
-               i = comp; 
-              
-                
-               
-               }
-               }
-                if (i<=17){
-                   System.out.println("Enter...You can choose [" + (i+1) + "," + (i+2) +"," +(i+3) + "]");
-                   int player1 = scanner.nextInt();
-               
-               int comp = (ran.nextInt(3)+1) + player1;
-               i = comp;
-               System.out.println("I choose " + comp);
-                 if(comp == 21){
-                     System.out.println("I loose");
-                     Quit();
-                 }
-                 else if(player1 == 21){
-                     System.out.println("You Loose");
-                     Quit();
-               
-                 }
-                  
-               }
-               }
-               
+            
                }
     public static void No(){
         Random ran = new Random();
-        Scanner scanner = new Scanner(System.in);
         int random = ran.nextInt(3)+1;
         System.out.println("Okay!");
-        System.out.println("I choose " + random);
         
-            System.out.println("Enter you can choose  [ " + (random+1)+" or " + (random +2)+ " or "  + (random+3) + "]}");
-            int player = scanner.nextInt();
             
-            int num = random + player;
-            System.out.println(num);
+           int num = random;
+           System.out.println("I choose" + num);
+           
+           game(num);
+              
             
-            int i = num;
-            for(i = num;i<=22;){
+               }
+    
+    
+    public static void game(int num){
+        Random ran = new Random();
+        Scanner scanner = new Scanner(System.in);
+       
+        
+        
+        int i;
+            for(i = num;i<=21;){
                if((i+1)==21){
 
                System.out.println("Enter...You can choose [" + (i+1)+ "]");
                int player1 = scanner.nextInt();
-               
+                   System.out.println("You choose " + player1);
                    System.out.println("You Loose,Better luck next time");
                    Quit();
                
@@ -156,18 +94,17 @@ public class Program {
 
                System.out.println("Enter...You can choose [" + (i+1) + "," + (i+2) +"," + "]");
                int player1 = scanner.nextInt();
-               
-               int comp = (ran.nextInt((21-player1))+1) + player1;
-                System.out.println("I choose " + comp);
-               if(comp == 21){
-                     System.out.println("I loose");
-                     Quit();
-                 }
-                 else if (player1==21) {
+               if (player1==21) {
                              System.out.println("You loose");
                              Quit();
                              }
-               i = comp; 
+               else{
+
+                     System.out.println("I loose");
+                     Quit();
+                 }
+                 
+                
               
                  
                      
@@ -212,8 +149,10 @@ public class Program {
                   
                }
                }
-               
-               }
-               
-            } 
+        
+        
+        
+    }
+}
+
     
