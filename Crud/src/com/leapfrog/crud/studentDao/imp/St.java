@@ -15,8 +15,9 @@ import com.leapfrog.crud.studentDao.StdDao;
 public class St implements StdDao{
 
     @Override
-    public boolean ins(Student sam) {
-        System.out.println("test");
+    public boolean ins(String sam) {
+        System.out.println(sam);
+        
         return false;
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -28,7 +29,9 @@ public class St implements StdDao{
 
     @Override
     public boolean delete(Student s) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    s.getId();
+    return false;
     }
 
     

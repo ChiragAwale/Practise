@@ -17,9 +17,9 @@ public class Program {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Student stud = new Student();
+        Student sam = new Student();
         StdDao sd = new St();
-        sd.ins(stud);
+        sd.ins("cat");
         
         
     

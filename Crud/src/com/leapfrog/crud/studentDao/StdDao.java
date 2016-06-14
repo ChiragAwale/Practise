@@ -12,7 +12,7 @@ import com.leapfrog.crud.entity.Student;
  * @author chira
  */
 public interface StdDao {
-    boolean ins(Student sam);
+    boolean ins(String sam);
     Student getById(int id);
     boolean delete(Student s);
 }
