@@ -11,13 +11,19 @@ package com.leapfrog.crudPart2.entity;
  */
 public class Product {
 
+    public Product(int productId, String productName, String productType, String expiryDate, String manufacturedDate) {
+        this.productId = productId;
+        this.productName = productName;
+        this.productType = productType;
+        this.expiryDate = expiryDate;
+        this.manufacturedDate = manufacturedDate;
+    }
+
     private int productId;
     private String productName, productType, expiryDate, manufacturedDate;
 
     public Product() {
     }
-
-    
 
     public String getProductName() {
         return productName;
@@ -42,11 +48,13 @@ public class Product {
     public void setProductId(int productId) {
         this.productId = productId;
     }
-    public String getManufacturedDate(){
+
+    public String getManufacturedDate() {
         return manufacturedDate;
     }
-    public void setManufacturedDate(String manufacturedDate){
-        this.manufacturedDate=manufacturedDate;
+
+    public void setManufacturedDate(String manufacturedDate) {
+        this.manufacturedDate = manufacturedDate;
     }
 
     public String getExpiryDate() {

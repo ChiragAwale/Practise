@@ -22,7 +22,7 @@ public class Main {
         Controller c = new Controller(input);
         while (true) {
             c.process();
-         
+
         }
     }
 }

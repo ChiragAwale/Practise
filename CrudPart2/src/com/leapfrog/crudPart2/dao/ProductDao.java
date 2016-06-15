@@ -17,8 +17,10 @@ public interface ProductDao {
     boolean insert(Product p);
 
     Product getById(int id);
+
     boolean del(int id);
 
     ArrayList<Product> getAll();
-
+   boolean idReset(Product p);
+   int getLastId();
 }

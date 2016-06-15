@@ -20,6 +20,7 @@ public class ProductDaoImpl implements ProductDao {
 
     private ArrayList<Product> productList = new ArrayList<>();
 
+
     @Override
     public boolean insert(Product p) {
         productList.add(p);
@@ -28,9 +29,9 @@ public class ProductDaoImpl implements ProductDao {
 
     @Override
     public Product getById(int id) {
-        for (Product pr : productList) {
-            if (pr.getProductId() == id) {
-                return pr;
+        for (Product prod : productList) {
+            if (prod.getProductId() == id) {
+                return prod;
             }
         }
         return null;
@@ -51,7 +52,7 @@ public class ProductDaoImpl implements ProductDao {
         if (pro1 != null) {
             System.out.println("Do you really want to delete?[y/n]");
             if (ch.next().equalsIgnoreCase("y")) {
-                productList.remove(id);
+                productList.remove(pro1);
             }
             return true;
         } else {
@@ -60,6 +61,28 @@ public class ProductDaoImpl implements ProductDao {
         }
 
     }
+
+    //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+    @Override
+    public boolean idReset(Product p) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getLastId() {
+        int count1 = productList.size();
+        if(count1 == 0){
+            return 1;
+        }
+        else { 
+           Product pro2 = productList.get(count1 - 1);
+           return pro2.getProductId() + 1;
+           
+        }       
+//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
+
 // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 
