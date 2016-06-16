@@ -17,15 +17,12 @@ public class StudentDaoImpl implements StudentDao {
 
     ArrayList<Student> studentList = new ArrayList<>();
     ArrayList<Student> studentListPerm = new ArrayList<>();
-   
-   
 
     @Override
     public boolean add(Student s) {
-      
-                studentList.add(s);
-        
-       
+
+        studentList.add(s);
+
         return true;
 // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -45,37 +42,34 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public boolean checkEmail(Student s) {
-      int checkEmail = 0;
-        for( Student std: studentList){
-            if(std.getEmail().equals(s.getEmail())){
-                checkEmail = 1;   
+        int checkEmail = 0;
+        for (Student std : studentList) {
+            if (std.getEmail().equals(s.getEmail())) {
+                checkEmail = 1;
             }
-           
-            
-    }
-        if(checkEmail ==1){
-            return true;
+
         }
-        else { return false;
-    
+        if (checkEmail == 1) {
+            return true;
+        } else {
+            return false;
+
         }
     }
 
     @Override
     public boolean checkId(Student s) {
         int checkId = 0;
-     for( Student std: studentList){
-            if(std.getId()==s.getId()){
+        for (Student std : studentList) {
+            if (std.getId() == s.getId()) {
                 checkId = 1;
-                
+
             }
-           
-            
-    }
-        if(checkId ==1){
-            return true;
+
         }
-        else{
+        if (checkId == 1) {
+            return true;
+        } else {
             return false;
         }
     }

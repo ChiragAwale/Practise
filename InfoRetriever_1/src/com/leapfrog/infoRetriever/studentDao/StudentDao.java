@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author chira
+ * @author chirag
  */
 public interface StudentDao {
 
