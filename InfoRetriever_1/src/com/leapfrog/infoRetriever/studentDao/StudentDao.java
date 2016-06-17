@@ -18,7 +18,7 @@ public interface StudentDao {
 
     ArrayList<Student> showAll();
 
-    boolean delete(Student s);
+  
 
     boolean checkEmail(Student s);
 
