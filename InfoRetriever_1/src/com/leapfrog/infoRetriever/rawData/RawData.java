@@ -10,8 +10,9 @@ package com.leapfrog.infoRetriever.rawData;
  * @author chira
  */
 public class RawData {
-    public static String[] data (){
-         String[] rd = new String[10];
+
+    public static String[] data() {
+        String[] rd = new String[10];
         rd[0] = "1,Ram,Shrestha,ram@gmail.com,0";
         rd[1] = "2,Gopal,Shrestha,ra123@gmail.com,1";
         rd[2] = "3,Binit,Sthapit,ra123@gmail.com,1";
