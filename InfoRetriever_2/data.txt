@@ -3,7 +3,7 @@
 3,Binit,Sthapit,ra123@gmail.com,1
 3,Sanim,Maharjan,Sanim@gmail.com,1
 5,Ram,Maharjan,ram@gmail.com,0
-6,Nimesh,Karki,sdd@gmail.com,0
+1,Nimesh,Karki,sdd@gmail.com,0
 7,Karki,Hari@gmail.com,0
 8,Shyam,Shrestha,Shyam@gmail.com,1
 9,,";
