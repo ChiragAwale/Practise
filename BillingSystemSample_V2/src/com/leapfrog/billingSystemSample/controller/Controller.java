@@ -5,7 +5,9 @@
  */
 package com.leapfrog.billingSystemSample.controller;
 
+import com.leapfrog.billingSystemSample.dao.CategoryDao;
 import com.leapfrog.billingSystemSample.dao.ProductDao;
+import com.leapfrog.billingSystemSample.dao.impl.CategoryDaoImpl;
 import com.leapfrog.billingSystemSample.dao.impl.ProductDaoImpl;
 import com.leapfrog.billingSystemSample.entity.Product;
 import com.leapfrog.billingSystemSample.entity.Category;
@@ -24,6 +26,7 @@ public class Controller {
     Scanner input = new Scanner(System.in);
 
     ProductDao productDao = new ProductDaoImpl();
+    CategoryDao categoryDao = new CategoryDaoImpl();
     int total = 0;
 
     public void add() {
@@ -42,22 +45,12 @@ public class Controller {
                 product.setCategory(tokens[4]);
                 category.setProductCategory(product);
                 productDao.add(product);
-                if (productDao.checkCategory(tokens[4]) == false) {
-                    productDao.addCategory(category);
+                if (categoryDao.checkCategory(tokens[4]) == false) {
+                    categoryDao.addCategory(category);
                 }
             }
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
-        }
-    }
-
-    public void show() {
-        for (Product pro : productDao.showAll()) {
-            System.out.println(pro.getProductId()
-                    + pro.getProductName()
-                    + pro.getQuantity()
-                    + pro.getPrice()
-                    + pro.getCategory());
         }
     }
 
@@ -75,13 +68,13 @@ public class Controller {
                 int choice = input.nextInt();
                 switch (choice) {
                     case 1:
-                        id();
+                        searchById();
                         break;
                     case 2:
-                        category();
+                        searchByCategory();
                         break;
                     case 3:
-                        name();
+                        searchByName();
                         break;
                     case 4:
                         showCart();
@@ -102,7 +95,7 @@ public class Controller {
 
     }
 
-    public void id() {
+    public void searchById() {
 
         try {
             while (true) {
@@ -128,11 +121,11 @@ public class Controller {
 
     }
 
-    public void category() {
+    public void searchByCategory() {
         while (true) {
             System.out.println("Enter Category you want to search");
             System.out.println("The available categories are: ");
-            for (Category cat : productDao.showAllCategory()) {
+            for (Category cat : categoryDao.showAllCategory()) {
 
                 System.out.println(cat.getProductCategory());
 
@@ -149,7 +142,7 @@ public class Controller {
         }
     }
 
-    public void name() {
+    public void searchByName() {
         while (true) {
 
             System.out.println("Enter Name you want to search");
@@ -219,14 +212,14 @@ public class Controller {
         }
     }
 
-    public void checkout() {
+    public void checkOut() {
         while (true) {
             System.out.println("Enter money given ");
             int money = input.nextInt();
             if (money < total) {
                 System.out.println("Money not enough. Please enter valid amount");
             } else {
-                System.out.println("Here is the change: " + (money-total));
+                System.out.println("Here is the change: " + (money - total));
                 productDao.resetCartArray();
                 System.out.println("Press Any Key to Goto Main menu");
                 input.next();
@@ -249,7 +242,7 @@ public class Controller {
         System.out.println("You Total is: " + total);
         System.out.println("Do you want to check out?[y/n]");
         if (input.next().equalsIgnoreCase("y")) {
-            checkout();
+            checkOut();
         }
     }
 }

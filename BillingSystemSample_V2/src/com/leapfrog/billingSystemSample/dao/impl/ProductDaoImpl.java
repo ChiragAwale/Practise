@@ -10,15 +10,14 @@ import com.leapfrog.billingSystemSample.entity.Category;
 import com.leapfrog.billingSystemSample.entity.Product;
 import java.util.ArrayList;
 
-
 /**
  *
  * @author chira
  */
 public class ProductDaoImpl implements ProductDao {
+
     ArrayList<Product> cart = new ArrayList<>();
     ArrayList<Product> productList = new ArrayList<>();
-    ArrayList<Category> categoryList = new ArrayList<>();
 
     @Override
     public boolean add(Product p) {
@@ -57,63 +56,38 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public boolean addCategory(Category c) {
-        return categoryList.add(c);
-    }
-
-    @Override
-    public boolean checkCategory(String category) {
-
-        for (Category cat : categoryList) {
-            if (cat.getProductCategory().equals(category)) {
-                return true;
-            }
-
-        }
-
-        return false;
-
-    }
-
-    @Override
-    public ArrayList<Category> showAllCategory() {
-        return categoryList;
-    }
-
-    @Override
     public Boolean getByName(String name) {
         int check = 0;
-         for (Product pro : productList) {
+        for (Product pro : productList) {
             if ((pro.getProductName().contains(name))) {
                 System.out.println("Product Id: " + pro.getProductId());
                 System.out.println("Product Name: " + pro.getProductName());
                 System.out.println("Product Quantity Available: " + pro.getQuantity());
                 System.out.println("Product Price: " + pro.getPrice());
                 System.out.println("Product Category: " + pro.getCategory());
-                 check = 1;
+                check = 1;
             }
-            
+
         }
-         if(check==0){
-        return false;
-    }
-         else{
-             return true;
-         }
+        if (check == 0) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     @Override
-    public boolean checkQuantity(int quantity,String name) {
-       for (Product prod : productList) {
-            if ((quantity)<=prod.getQuantity() && name.equalsIgnoreCase(prod.getProductName())) {
-                
+    public boolean checkQuantity(int quantity, String name) {
+        for (Product prod : productList) {
+            if ((quantity) <= prod.getQuantity() && name.equalsIgnoreCase(prod.getProductName())) {
+
                 return true;
             }
 
         }
-       
+
         return false;
-     
+
     }
 
     @Override
@@ -123,16 +97,16 @@ public class ProductDaoImpl implements ProductDao {
 
     @Override
     public ArrayList<Product> showCart() {
-    return cart;
+        return cart;
     }
 
     @Override
-    public boolean checkIdForQuantityAndPrice(int id,int quantity,int price) {
-        for(Product p : cart){
-            if(p.getProductId()==id){
-                p.setQuantity(p.getQuantity()+quantity);
-                p.setPrice(p.getPrice()+price);
-            return true;
+    public boolean checkIdForQuantityAndPrice(int id, int quantity, int price) {
+        for (Product p : cart) {
+            if (p.getProductId() == id) {
+                p.setQuantity(p.getQuantity() + quantity);
+                p.setPrice(p.getPrice() + price);
+                return true;
             }
         }
         return false;
@@ -140,7 +114,7 @@ public class ProductDaoImpl implements ProductDao {
 
     @Override
     public boolean resetCartArray() {
-       cart.clear();
+        cart.clear();
         return true;
     }
 }
