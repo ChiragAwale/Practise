@@ -1,0 +1,15 @@
+1,Samsung Galaxy S7,100,98000,Mobile
+2,Samsung Galaxy S7 edge,200,106000,Mobile
+3,Iphone 6,150,100000,Mobile
+4,Iphone 6s,50,120000,Mobile
+5,Hp Envy 4,100,130000,Laptop
+6,Dell Inspiron 21n,500,90000,Laptop
+7,Mac Book Air,200,150000,Laptop
+8,Transcend HDD 1TB,200,10000,HardDrive
+9,Dell HDD 1TB,200,9000,HardDrive
+10,Samsung T97 Laser Color Printer,100,20000,Printer
+11,Samsung T98 Laser Color Printer,200,30000,Printer
+12,Sony Bravia 640s,500,97000,Tv
+13,Samsung G4 Tv,500,106000,Tv
+14,Phillips 490G Tv,500,50000,Tv
+15,Apple Tv 52",500,120000,Tv
