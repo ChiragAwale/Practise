@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.JDialog;
@@ -31,6 +32,7 @@ import javax.swing.JTextArea;
  * @author chira
  */
 public class Gui extends JFrame {
+    File selectedFile=null;
 
     Rw rw = new Rw();
     JMenuBar menu;
@@ -185,6 +187,7 @@ public class Gui extends JFrame {
                 path = fileChooser.getSelectedFile().getPath();
                 textArea.setText(rw.reader(path));
             } else if (!textArea.getText().equals("") && !path.equals("")) {
+                rw.chck1(textArea.getText());
                 Boolean chck = rw.Check(path, textArea.getText());
                 if (chck == true) {
                     choice = fileChooser.showOpenDialog(openFile);
@@ -203,6 +206,10 @@ public class Gui extends JFrame {
                         path = fileChooser.getSelectedFile().getPath();
                         textArea.setText(rw.reader(path));
                     }
+                } else if (chck == true) {
+                    choice = fileChooser.showOpenDialog(openFile);
+                    path = fileChooser.getSelectedFile().getPath();
+                    textArea.setText(rw.reader(path));
                 }
 
             } else if (!textArea.getText().equals("") && path.equals("")) {
@@ -211,8 +218,8 @@ public class Gui extends JFrame {
                     SaveAs sa = new SaveAs();
                     sa.actionPerformed(e);
                     choice = fileChooser.showOpenDialog(openFile);
-                        path = fileChooser.getSelectedFile().getPath();
-                        textArea.setText(rw.reader(path));
+                    path = fileChooser.getSelectedFile().getPath();
+                    textArea.setText(rw.reader(path));
                 } else {
                     choice = fileChooser.showOpenDialog(openFile);
                     path = fileChooser.getSelectedFile().getPath();
