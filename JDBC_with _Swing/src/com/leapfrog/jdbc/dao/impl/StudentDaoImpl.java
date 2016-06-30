@@ -85,7 +85,7 @@ public class StudentDaoImpl implements StudentDao {
         String sql = ("select* from tbl_student");
         db.initStatement(sql);
         db.initStatement(sql);
-        ResultSet result =  db.query();
+        ResultSet result = db.query();
         while (result.next()) {
 
             Student s = new Student();
@@ -108,8 +108,8 @@ public class StudentDaoImpl implements StudentDao {
         db.open();
         String sql = ("select * from tbl_student where id=?");
         PreparedStatement statement = db.initStatement(sql);
-        statement.setInt(1,id);
-        ResultSet result =  db.query();
+        statement.setInt(1, id);
+        ResultSet result = db.query();
         while (result.next()) {
             Student s = new Student();
             s.setId(result.getInt("id"));
@@ -127,21 +127,21 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     @Override
-    public int udpate(int id,Student s) throws ClassNotFoundException, SQLException {
+    public int udpate(int id, Student s) throws ClassNotFoundException, SQLException {
         db.open();
         String sql = ("update tbl_student set First_Name=?,Last_Name=?,Email_id=?,Status=?,modified_date=? where id =?");
         PreparedStatement statement = db.initStatement(sql);
-       
+
         statement.setString(1, s.getFirstName());
         statement.setString(2, s.getLastName());
         statement.setString(3, s.getEmail());
         statement.setBoolean(4, s.isStatus());
-        statement.setInt(6,s.getId());
-        statement.setDate(5,new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
+        statement.setInt(6, s.getId());
+        statement.setDate(5, new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
         int result = db.update();
         db.close();
         return result;
-    
+
     }
 
 }
