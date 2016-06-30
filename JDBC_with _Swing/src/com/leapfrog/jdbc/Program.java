@@ -5,11 +5,9 @@
  */
 package com.leapfrog.jdbc;
 
-import com.leapfrog.jdbc.UI.Add;
 import com.leapfrog.jdbc.UI.Menu;
-import com.leapfrog.jdbc.controller.StudentController;
+
 import java.sql.SQLException;
-import java.util.Scanner;
 
 /**
  *
