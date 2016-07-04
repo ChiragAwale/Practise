@@ -6,12 +6,10 @@
 package com.practise.webScrapper;
 
 import com.practise.webScrapper.util.Grabber;
-import java.io.BufferedReader;
+
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URLConnection;
+
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -29,7 +27,8 @@ public class Program {
         Scanner input = new Scanner(System.in);
         System.out.println("Instagram photo downloader");
         System.out.println("( For Education Purpose Only )");
-        System.out.println("Note: You can only download photos of public profiles of instagram");
+        System.out.println("Note: You can only download all photos of public profiles of instagram");
+        System.out.println("You can download profile pics of private accounts");
         String baseUrl = "https://instagram.com/";
         System.out.println("Enter Instagram username");
         String link = input.next();
@@ -39,26 +38,24 @@ public class Program {
 
             Pattern pattern = Pattern.compile(regEx);
 
-            Matcher matcher = pattern.matcher(grabber.getBody(baseUrl+link));
-           
+            Matcher matcher = pattern.matcher(grabber.getBody(baseUrl + link));
+
             while (matcher.find()) {
                 String imgPath = (matcher.group(0));
-                
+
                 String path = (imgPath);
                 String[] tokens = path.split("/");
                 File file = new File("C://instpht");
-                if(!file.isDirectory()){
+                if (!file.isDirectory()) {
                     file.mkdir();
                 }
-                File file1 = new File("C://instpht/"+link);
-                if(!file1.isDirectory()){
+                File file1 = new File("C://instpht/" + link);
+                if (!file1.isDirectory()) {
                     file1.mkdir();
                 }
-                
-                
-                
-                System.out.println("Downloading "+ path);
-                grabber.downloadImg(path,"C://instpht/"+link+"/"+tokens[tokens.length-1]);
+
+                System.out.println("Downloading " + path);
+                grabber.downloadImg(path, "C://instpht/" + link + "/" + tokens[tokens.length - 1]);
             }
             System.out.println("Your photos are stored in your C drive in a folder named instpht");
 
