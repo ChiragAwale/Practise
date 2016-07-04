@@ -50,11 +50,15 @@ public class Program {
                 if(!file.isDirectory()){
                     file.mkdir();
                 }
+                File file1 = new File("C://instpht/"+link);
+                if(!file1.isDirectory()){
+                    file1.mkdir();
+                }
                 
                 
                 
                 System.out.println("Downloading "+ path);
-                grabber.downloadImg(path,"C://instpht/"+tokens[tokens.length-1]);
+                grabber.downloadImg(path,"C://instpht/"+link+"/"+tokens[tokens.length-1]);
             }
             System.out.println("Your photos are stored in your C drive in a folder named instpht");
 
