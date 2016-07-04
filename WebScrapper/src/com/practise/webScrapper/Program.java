@@ -46,7 +46,7 @@ public class Program {
                 
                 String path = (imgPath);
                 String[] tokens = path.split("/");
-                File file = new File("instpht");
+                File file = new File("C://instpht");
                 if(!file.isDirectory()){
                     file.mkdir();
                 }
