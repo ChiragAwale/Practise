@@ -29,6 +29,7 @@ public class Program {
         Scanner input = new Scanner(System.in);
         System.out.println("Instagram photo downloader");
         System.out.println("( For Education Purpose Only )");
+        System.out.println("Note: You can only download photos of public profiles of instagram");
         String baseUrl = "https://instagram.com/";
         System.out.println("Enter Instagram username");
         String link = input.next();
@@ -45,13 +46,17 @@ public class Program {
                 
                 String path = (imgPath);
                 String[] tokens = path.split("/");
-               
+                File file = new File("instpht");
+                if(!file.isDirectory()){
+                    file.mkdir();
+                }
                 
                 
                 
                 System.out.println("Downloading "+ path);
-                grabber.downloadImg(path,tokens[tokens.length-1]);
+                grabber.downloadImg(path,"C://instpht/"+tokens[tokens.length-1]);
             }
+            System.out.println("Your photos are stored in your C drive in a folder named instpht");
 
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
