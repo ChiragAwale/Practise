@@ -75,6 +75,7 @@ public class Display extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         back = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,14 +84,14 @@ public class Display extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Product Name", "Price", "Dealer", "Link"
+                "Product Name", "Price(Nrs.)", "Dealer", "Link"
             }
         ) {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                true, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -101,7 +102,10 @@ public class Display extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        table.setColumnSelectionAllowed(true);
+        table.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(table);
+        table.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         back.setText("Back");
         back.addActionListener(new java.awt.event.ActionListener() {
@@ -110,13 +114,17 @@ public class Display extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Note:Double Click on link to select link");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -125,7 +133,11 @@ public class Display extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(back, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(back, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1))))
         );
 
         pack();
@@ -150,7 +162,7 @@ public class Display extends javax.swing.JFrame {
             Product product = new Product();
             product.setProductName(matcher.group(3));
             product.setLink(baseUrl + matcher.group(1));
-            product.setPrice("Nrs." + matcher.group(5));
+            product.setPrice(matcher.group(5));
             product.setDealer(baseUrl);
             productDao.add(product,search);
 
@@ -170,7 +182,7 @@ public class Display extends javax.swing.JFrame {
             Product product = new Product();
             product.setProductName(matcher1.group(3));
             product.setLink(baseUrl + matcher1.group(1));
-            product.setPrice(matcher1.group(4));
+            product.setPrice(matcher1.group(4).replace(" NPR ", ""));
             product.setDealer(baseUrl);
            productDao.add(product,search);
 
@@ -236,6 +248,7 @@ public class Display extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton back;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
