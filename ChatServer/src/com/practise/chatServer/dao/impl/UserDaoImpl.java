@@ -5,18 +5,14 @@
  */
 package com.practise.chatServer.dao.impl;
 
-import com.practise.chatServer.dao.BlockDao;
 import com.practise.chatServer.dao.UsersDao;
 import com.practise.chatServer.dbutil.DbConnection;
-import com.practise.chatServer.entity.BlockedUsersId;
-import com.practise.chatServer.entity.Client;
+
 import com.practise.chatServer.entity.User;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
