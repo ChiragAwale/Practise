@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.leapfrog.jdbc.dbutil;
+package com.practise.chatServer.dbutil;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -22,7 +22,7 @@ public class DbConnection {
 
     public void open() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
-        con = DriverManager.getConnection("jdbc:mysql://localhost/SchoolManageMentSystem", "root", "");
+        con = DriverManager.getConnection("jdbc:mysql://localhost/chatserver", "root", "");
     }
 
     public PreparedStatement initStatement(String sql) throws SQLException {

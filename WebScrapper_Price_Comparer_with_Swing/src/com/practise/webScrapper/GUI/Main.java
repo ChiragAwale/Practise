@@ -18,6 +18,7 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+        
     }
 
     /**
@@ -124,12 +125,12 @@ public class Main extends javax.swing.JFrame {
 
         String search = searchValue.getText();
 
-        Display display = new Display(search);
+        Display display = new Display(search); 
         display.setVisible(true);
 
 
     }//GEN-LAST:event_goButtonActionPerformed
-
+  
     private void searchValueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchValueActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_searchValueActionPerformed
