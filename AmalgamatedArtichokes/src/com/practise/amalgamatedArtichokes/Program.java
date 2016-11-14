@@ -51,7 +51,7 @@ public class Program {
         
 
        
-        checker = (p * (Math.sin(a * 1 + b) + Math.cos(c * 1 + d) + 2));                           //Used for comparison(Formula is for calculating stock decline)
+        checker = (p * (Math.sin(a * 1 + b) + Math.cos(c * 1 + d) + 2));                           //Used for comparison(Formula is for calculating stock price)
        
         for (k = 1; k <= n; k++) {
 
